@@ -48,12 +48,12 @@ document.addEventListener("keydown", (e) => {
 
 function endGame() {
   gameOver = true;
-  // Optional: visually mark the player or screen as game over
-  instructions.textContent = `Game Over! Final Score ${score}`
-  alert(`Game Over! Final Score ${score}`);
-  // Stop all ongoing obstacle movement and animations
-  // Let user refresh or auto-reload
-  location.reload();
+  instructions.textContent = `Game Over! Final Score ${score}! Press Space To Play Again!`
+  document.addEventListener("keydown", (e) => {
+    if (e.code === "Space") {
+      e.preventDefault();
+      location.reload();
+    }});
 }
 
 function createObstacle() {
